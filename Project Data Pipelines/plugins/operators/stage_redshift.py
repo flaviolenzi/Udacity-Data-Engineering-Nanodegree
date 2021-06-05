@@ -39,9 +39,3 @@ class StageToRedshiftOperator(BaseOperator):
                     ".format(self.table_name, s3_path, credentials.access_key, credentials.secret_key, self.log_json_path)
         redshift.run(query)
 
-
-
-        
-        
-        
-        

@@ -25,3 +25,4 @@ class LoadDimensionOperator(BaseOperator):
         if self.truncate:
             redshift.run(f"TRUNCATE TABLE {}".format(self.table_name))
         redshift.run(self.query)
+

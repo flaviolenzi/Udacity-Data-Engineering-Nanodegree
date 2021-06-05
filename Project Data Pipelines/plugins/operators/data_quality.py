@@ -30,3 +30,4 @@ class DataQualityOperator(BaseOperator):
                 raise ValueError(f"Data quality check failed - {} returned 0 rows".format(table))
                 
             self.log.info(f"Data quality on table {} check passed with {} records".format(table, total_records))
+
