@@ -16,7 +16,7 @@ class StageToRedshiftOperator(BaseOperator):
                  log_json_path="",
                  *args, **kwargs):
 
-        super(StageToRedshiftOperator, self).__init__(*args, **kwargs)
+        super(StageToRedshiftOperator, self).__init__(*args, **kwargs):
         self.redshift_conn_id = redshift_conn_id
         self.aws_credential = aws_credential
         self.table_name = table_name
@@ -29,13 +29,13 @@ class StageToRedshiftOperator(BaseOperator):
         aws_hook = AwsHook(self.aws_credential)
         credentials = aws_hook.get_credentials()
         redshift = PostgresHook(postgres_conn_id=self.redshift_conn_id)
+        
         self.s3_key = self.s3_key.format(**context)
         s3_path = "s3://{}/{}".format(self.s3_bucket, self.s3_key)
-        query = "   COPY {} \
+        query = """ COPY {} \
                     FROM '{}' \
                     ACCESS_KEY_ID '{}' \
                     SECRET_ACCESS_KEY '{}' \
                     FORMAT AS json '{}'; \
-                    ".format(self.table_name, s3_path, credentials.access_key, credentials.secret_key, self.log_json_path)
+                    """.format(self.table_name, s3_path, credentials.access_key, credentials.secret_key, self.log_json_path)
         redshift.run(query)
-
