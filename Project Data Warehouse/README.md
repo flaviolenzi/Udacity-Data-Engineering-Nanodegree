@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project has the objective of analyzing the data of the startup Sparkify, developer of a music streaming app. Since their user and song database growth, they want to move their process to AWS. Their data is located on S3 in JSON format. For this project, we created an ETL pipeline to extrar the data from S3 into staging tables on Redshift, and transform that data into analytic tables so they can continue finding valuable insights.
+This project has the objective of analyzing the data of the startup Sparkify, developer of a music streaming app. Since their user and song database growth, they want to move their process to AWS. Their data is located on S3 in JSON format. For this project, we created an ETL pipeline to extract the data from S3 into staging tables on Redshift, and transform that data into analytic tables so they can continue finding valuable insights.
 
 ## Project Datasets
 
