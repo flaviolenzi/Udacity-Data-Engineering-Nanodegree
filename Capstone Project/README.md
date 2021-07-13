@@ -133,7 +133,7 @@ Example of what a tag file looks like:
 
 The modeling created was a star schema to optimize queries on questions analysis.
 
-```mermaid
+```mermaid:
 erDiagram
   question_table {
     BIGINT question_id
